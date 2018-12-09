@@ -1,1 +1,3 @@
+[![npm version](https://badge.fury.io/js/react-native-simple-swipe.svg)](https://badge.fury.io/js/react-native-simple-swipe)
+
 ### Coming Soon...
