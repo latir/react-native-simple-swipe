@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Text, PanResponder, Animated, View, StyleSheet, TouchableOpacity, Easing } from 'react-native';
-import { BORDER_COLOUR_TABLE, BACKGROUND_COLOUR_LIGHT, TEXT_COLOUR_PRIMARY } from '../../config/theme';
+import PropTypes from 'prop-types';
 
 const propTypes = {
   children: PropTypes.shape().isRequired,
@@ -165,8 +164,8 @@ const defaultStyles = StyleSheet.create({
     borderBottomRightRadius: 4
   },
   swipeButton: {
-    backgroundColor: BACKGROUND_COLOUR_LIGHT,
-    borderLeftColor: BORDER_COLOUR_TABLE,
+    backgroundColor: '#f2f2f2',
+    borderLeftColor: '#e6e6e7',
     borderLeftWidth: 1,
     height: '100%',
     paddingHorizontal: 15,
