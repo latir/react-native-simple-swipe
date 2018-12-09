@@ -1,6 +1,10 @@
 {
   "name": "react-native-simple-swipe",
   "version": "1.0.0",
+  "registry": "https://registry.npmjs.org/",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "description": "A React-Native component for adding a swipe gesture to a component",
   "main": "index.js",
   "scripts": {
