@@ -1,0 +1,15 @@
+{
+  "name": "react-native-simple-swipe",
+  "version": "1.0.0",
+  "description": "A React-Native component for adding a swipe gesture to a component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Latir Cole-Etti",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">= 15.x",
+    "react-native": ">= 0.47.x"
+  }
+}
