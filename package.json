@@ -1,10 +1,6 @@
 {
   "name": "react-native-simple-swipe",
   "version": "1.1.0",
-  "registry": "https://registry.npmjs.org/",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "description": "A React-Native component for adding a swipe gesture to a component",
   "main": "index.js",
   "scripts": {
@@ -12,6 +8,15 @@
   },
   "author": "Latir Cole-Etti",
   "license": "MIT",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/latircoleetti/react-native-simple-swipe/issues"
+  },
+  "homepage": "https://github.com/latircoleetti/react-native-simple-swipe#readme",
+  "registry": "https://registry.npmjs.org/",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "react": ">= 15.x",
     "react-native": ">= 0.47.x"
