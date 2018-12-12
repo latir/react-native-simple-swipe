@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   children: PropTypes.shape().isRequired,
+  peakOnMount: PropTypes.bool,
   swipeButtonOnPress: PropTypes.func.isRequired,
   swipeButtonText: PropTypes.string,
   reference: PropTypes.func,
@@ -12,6 +13,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  peakOnMount: false,
   swipeButtonText: 'Clear',
   disabled: false,
   styles: {},
@@ -23,7 +25,7 @@ class SwipeToClear extends Component {
     super(props);
     this.scrollViewEnabled = true;
 
-    const position = new Animated.ValueXY({ x: -200, y: 0 });
+    const position = new Animated.ValueXY({ x: props.peakOnMount ? -200 : 0, y: 0 });
 
     const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => false,
@@ -43,7 +45,9 @@ class SwipeToClear extends Component {
   }
 
   componentDidMount() {
-    if (this.props.swipeButtonOnPress) {
+    const { swipeButtonOnPress, peakOnMount } = this.props;
+
+    if (swipeButtonOnPress && peakOnMount) {
       this.triggerSwipePeak();
     }
   }
@@ -119,7 +123,7 @@ class SwipeToClear extends Component {
     };
 
     return (
-      <View style={[defaultStyles.swipeableWidgetContainer, styles.swipeableWidgetContainer]}>
+      <View style={styles.swipeableWidgetContainer}>
         <TouchableOpacity onPress={swipeButtonOnPress} activeOpacity={0.9} style={[defaultStyles.swipeButtonContainer, styles.swipeButtonContainer]}>
           <View onLayout={this.setButtonWidth} style={[defaultStyles.swipeButton, styles.swipeButton]}>
             <Text style={[defaultStyles.buttonText, styles.buttonText]}>{swipeButtonText}</Text>
@@ -135,22 +139,7 @@ class SwipeToClear extends Component {
 }
 
 const defaultStyles = StyleSheet.create({
-  noInteractionOverlay: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%'
-  },
-  swipeableWidgetContainer: {
-    margin: 15,
-    marginLeft: -15,
-    borderTopRightRadius: 4,
-    overflow: 'hidden',
-    borderBottomRightRadius: 4
-  },
   childrenContainer: {
-    marginLeft: 30,
-    borderTopLeftRadius: 4,
-    borderBottomLeftRadius: 4,
     overflow: 'hidden'
   },
   swipeButtonContainer: {
@@ -159,9 +148,7 @@ const defaultStyles = StyleSheet.create({
     minWidth: '33%',
     overflow: 'hidden',
     position: 'absolute',
-    right: 0,
-    borderTopRightRadius: 4,
-    borderBottomRightRadius: 4
+    right: 0
   },
   swipeButton: {
     backgroundColor: '#f2f2f2',
@@ -175,10 +162,15 @@ const defaultStyles = StyleSheet.create({
   buttonText: {
     color: '#000000',
     fontSize: 16
-  }
+  },
+  noInteractionOverlay: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%'
+  },
 });
 
 SwipeToClear.propTypes = propTypes;
 SwipeToClear.defaultProps = defaultProps;
 
-export default SwipeToClear;
+export { SwipeToClear };
